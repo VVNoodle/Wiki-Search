@@ -1,0 +1,40 @@
+h2 {
+	margin:300px 0px 40px 0px;
+	top: 0px;
+	left: 0px;
+}
+
+.col-centered-left {
+  float: none;
+  margin-right: 2px;
+  margin-left: auto;
+  max-width: 300px;
+}
+
+.col-centered-right {
+  float: none;
+  margin-right: auto;
+  margin-left: 2px;
+  max-width: 300px;
+}
+
+#results{
+	margin: 40px 0px 20px 0px;
+	font-family: 'Raleway', sans-serif;
+}
+
+h4{
+	font-family: 'Titillium Web', sans-serif;
+}
+
+.greyscale{
+	filter: grayscale(100%);
+}
+
+#description{
+	font-size: 15px;
+}
+
+
+
+
