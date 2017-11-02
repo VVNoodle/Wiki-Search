@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     //Get user input
     var term = $("#userSearch").val();
+    console.log(term);
 
     //Open Search action for wiki API
     var link =
@@ -65,12 +66,14 @@ $(document).ready(function() {
 
   //Allow user to search using Enter/Return (ascii value is 13)
   $("#userSearch").keypress(function(key) {
-    if (
-      (key.which >= 65 && key.which <= 90) ||
-      (key.which >= 97 && key.which <= 122)
-    ) {
-      console.log("TEST");
-      $("#button").click();
-    }
+    setTimeout(() => {
+      if (
+        (key.which >= 65 && key.which <= 90) ||
+        (key.which >= 97 && key.which <= 122)
+      ) {
+        console.log("TEST");
+        $("#button").click();
+      }
+    }, 1000);
   });
 });
