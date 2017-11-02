@@ -5,7 +5,6 @@ $(document).ready(function() {
 
     //Get user input
     var term = $("#userSearch").val();
-    console.log(term);
 
     //Open Search action for wiki API
     var link =
@@ -34,28 +33,25 @@ $(document).ready(function() {
 
           //Search results. Title and description
           array[1].forEach(function(val) {
-            if (term.toUpperCase() !== val.toUpperCase()) {
-              //Prevent "term refers to", it's redundant
-              $("#choices").append(
-                "<a href=" +
-                  array[3][desCount] +
-                  " target =" +
-                  newTab +
-                  "><p class=" +
-                  greyscale +
-                  "><b>" +
-                  val +
-                  "</b></p></a>" +
-                  "<p id=" +
-                  descID +
-                  ">" +
-                  array[2][desCount++] +
-                  "</p><br/>"
-              ); //end append Title
-            } else desCount++;
-          }); //end foreach
-
-          // $("#userSearch").val("");
+            //Say array[3] stores Title and array[2] stores description
+            //desCount is counter
+            $("#choices").append(
+              "<a href=" +
+                array[3][desCount] +
+                " target =" +
+                newTab +
+                "><p class=" +
+                greyscale +
+                "><b>" +
+                val +
+                "</b></p></a>" +
+                "<p id=" +
+                descID +
+                ">" +
+                array[2][desCount++] +
+                "</p><br/>"
+            );
+          });
         }
       },
       error: function(error) {
@@ -66,14 +62,16 @@ $(document).ready(function() {
 
   //Allow user to search using Enter/Return (ascii value is 13)
   $("#userSearch").keypress(function(key) {
-    setTimeout(() => {
+    if (key.which === 13 || $("userSearch").val == "") {
+      $("#button").click();
+    }
+    var tuts = setTimeout(() => {
       if (
         (key.which >= 65 && key.which <= 90) ||
         (key.which >= 97 && key.which <= 122)
       ) {
-        console.log("TEST");
         $("#button").click();
       }
-    }, 1000);
+    }, 1500);
   });
 });
