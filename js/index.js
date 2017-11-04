@@ -19,8 +19,6 @@ $(document).ready(function() {
       async: false,
       dataType: "json",
       success: function(array) {
-        $("#results").html("Results for: " + term);
-
         var desCount = 0;
         var greyscale = "greyscale";
         // var animation = "animated fadeInDown";
@@ -32,6 +30,7 @@ $(document).ready(function() {
 
         //Search results. Title and description
         if (array[1]) {
+          $("#results").html("Results for: " + term);
           array[1].forEach(function(val) {
             //Say array[3] stores Title and array[2] stores description
             //desCount is counter
@@ -56,6 +55,9 @@ $(document).ready(function() {
                 "</p><br/>"
             );
           });
+        } else {
+          // remove "Resuts for: " if search is empty
+          $("#results").html("");
         }
       },
       error: function(error) {
@@ -68,26 +70,18 @@ $(document).ready(function() {
 
   userSearch.onkeydown = () => {
     var key = event.keyCode || event.charCode;
-    if (key == 8 || key == 46) {
-      console.log("TEST");
+    if (key === 13) {
+      $("#button").click();
+    } else if (key == 8 || key == 46) {
       setTimeout(() => {
         $("#button").click();
-      }, 0);
+      }, 300);
+    } else if ((key >= 65 && key <= 90) || (key >= 97 && key <= 122)) {
+      setTimeout(() => {
+        $("#button").click();
+      }, 1000);
     }
   };
 
   //Allow user to search using Enter/Return (ascii value is 13)
-  $("#userSearch").keypress(function(key) {
-    if (key.which === 13) {
-      $("#button").click();
-    }
-    var tuts = setTimeout(() => {
-      if (
-        (key.which >= 65 && key.which <= 90) ||
-        (key.which >= 97 && key.which <= 122)
-      ) {
-        $("#button").click();
-      }
-    }, 1500);
-  });
 });
