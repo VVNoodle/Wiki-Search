@@ -1,7 +1,13 @@
 h2 {
-  margin: 300px 0px 40px 0px;
+  margin: 300px 0px 20px 0px;
   top: 0px;
   left: 0px;
+  font-size: 64px;
+  font-family: "Titillium Web", sans-serif;
+}
+
+h4 {
+  font-family: "Titillium Web", sans-serif;
 }
 
 .col-centered-left {
@@ -18,17 +24,17 @@ h2 {
   max-width: 300px;
 }
 
+.greyscale {
+  filter: grayscale(100%);
+}
+
+#dice {
+  background-color: grey;
+}
+
 #results {
   margin: 40px 0px 20px 0px;
   font-family: "Raleway", sans-serif;
-}
-
-h4 {
-  font-family: "Titillium Web", sans-serif;
-}
-
-.greyscale {
-  filter: grayscale(100%);
 }
 
 #description {
