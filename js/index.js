@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $("#button").click(function() {
-    $("h2").css("margin", "40px 0px 40px 0px");
+    $("h2").css("margin", "40px 0px 20px 0px");
     $("body").attr("style", "background-size: default");
 
     //Get user input
@@ -20,7 +20,6 @@ $(document).ready(function() {
       dataType: "json",
       success: function(array) {
         var desCount = 0;
-        var greyscale = "greyscale";
         // var animation = "animated fadeInDown";
         var descID = "description";
         var newTab = "_blank";
@@ -39,20 +38,16 @@ $(document).ready(function() {
               array[2][desCount] = "No Description";
             }
             $("#choices").append(
-              "<a href=" +
+              '<div class="choiceitems"><a href=' +
                 array[3][desCount] +
-                " target =" +
-                newTab +
-                "><p class=" +
-                greyscale +
-                "><b>" +
+                ' target ="_blank" ><p class="title greyscale"><b>' +
                 val +
                 "</b></p></a>" +
                 "<p id=" +
                 descID +
                 ">" +
                 array[2][desCount++] +
-                "</p><br/>"
+                "</p><br/></div>"
             );
           });
         } else {
