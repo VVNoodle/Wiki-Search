@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $("#button").click(function() {
-    $("h2").css("margin", "40px 0px 20px 0px");
+    $("#wikisearch").css("margin-top", "40px");
     $("body").attr("style", "background-size: default");
 
     //Get user input

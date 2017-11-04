@@ -2,9 +2,6 @@ body {
   background-color: rgb(233, 231, 224);
 }
 h2 {
-  margin: 300px 0px 20px 0px;
-  top: 0px;
-  left: 0px;
   font-size: 64px;
   font-family: "Titillium Web", sans-serif;
 }
@@ -50,6 +47,10 @@ p {
 
 #description {
   font-size: 15px;
+}
+
+#wikisearch {
+  margin-top: 300px;
 }
 
 .choiceitems {
