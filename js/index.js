@@ -19,22 +19,26 @@ $(document).ready(function() {
       async: false,
       dataType: "json",
       success: function(array) {
-        if (term !== "") {
-          $("#results").html("Results for: " + term);
+        $("#results").html("Results for: " + term);
 
-          var desCount = 0;
-          var greyscale = "greyscale";
-          // var animation = "animated fadeInDown";
-          var descID = "description";
-          var newTab = "_blank";
+        var desCount = 0;
+        var greyscale = "greyscale";
+        // var animation = "animated fadeInDown";
+        var descID = "description";
+        var newTab = "_blank";
 
-          //reset search if user searches again
-          $("#choices").html("");
+        //reset search if user searches again
+        $("#choices").html("");
 
-          //Search results. Title and description
+        //Search results. Title and description
+        if (array[1]) {
           array[1].forEach(function(val) {
             //Say array[3] stores Title and array[2] stores description
             //desCount is counter
+            // If no description, change array to "No Description"
+            if (array[2][desCount] == "") {
+              array[2][desCount] = "No Description";
+            }
             $("#choices").append(
               "<a href=" +
                 array[3][desCount] +
@@ -60,9 +64,21 @@ $(document).ready(function() {
     }); //end ajax
   }); //end button click
 
+  var userSearch = document.getElementById("userSearch");
+
+  userSearch.onkeydown = () => {
+    var key = event.keyCode || event.charCode;
+    if (key == 8 || key == 46) {
+      console.log("TEST");
+      setTimeout(() => {
+        $("#button").click();
+      }, 0);
+    }
+  };
+
   //Allow user to search using Enter/Return (ascii value is 13)
   $("#userSearch").keypress(function(key) {
-    if (key.which === 13 || $("userSearch").val == "") {
+    if (key.which === 13) {
       $("#button").click();
     }
     var tuts = setTimeout(() => {
